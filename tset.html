@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Skin Electron Therapy</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(167, 169, 169, 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-border: rgba(119, 124, 124, 0.3);
+                --color-card-border: rgba(119, 124, 124, 0.2);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: var(--color-white);
+            color: var(--color-teal-400);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-btn {
+            background: var(--color-surface);
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-cream-100);
+            border-color: var(--color-primary);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--color-text);
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            ;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: var(--color-primary);
+            color: var(--color-cream-100);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        tr:hover {
+            background: rgba(var(--color-teal-500-rgb), 0.05);
+        }
+
+        .accordion {
+            margin-bottom: 15px;
+        }
+
+        .accordion-header {
+            background: var(--color-primary);
+            color: var(--color-cream-100);
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .accordion-header.active::after {
+            content: '−';
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 15px;
+        }
+
+        .highlight-box {
+            background: rgba(var(--color-teal-500-rgb), 0.1);
+            border-left: 4px solid var(--color-primary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .reference {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            vertical-align: super;
+        }
+        .p1 {text-align: center;
+            color: var(--color-teal-400);
+            margin-bottom: 30px;
+            font-size: 1.50rem;
+            font-weight: 500;}
+
+                .footer {
+            background-color: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-24) var(--space-32);
+            text-align: center;
+         }
+
+        .footer p {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-8);
+        }     
+
+        .footer p:last-child {
+            margin-bottom: 0;
+        }  
+
+        .footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+         .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Total Skin Electron Beam Therapy (TSEBT)</h1>
+        <p class="p1">RadOnc Dr Revanth M Khandke</p>
+
+        <div id="home-section" class="section active">
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="showSection('clinical-efficacy')">Clinical Efficacy</button>
+                <button class="nav-btn" onclick="showSection('technique')">Technique</button>
+                <button class="nav-btn" onclick="showSection('dose')">Dose and Fractionation</button>
+                <button class="nav-btn" onclick="showSection('supplemental')">Supplemental Treatments</button>
+                <button class="nav-btn" onclick="showSection('side-effects')">Side Effects</button>
+            </div>
+
+            <div class="content-card">
+                <h2>Overview</h2>
+                <p>Total Skin Electron Beam Therapy (TSEBT) is a specialized radiation therapy technique used primarily for the treatment of cutaneous T-cell lymphomas, particularly mycosis fungoides.</p>
+            </div>
+        </div>
+
+        <div id="clinical-efficacy" class="section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Menu</button>
+            
+            <div class="content-card">
+                <h2>Clinical Efficacy</h2>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        T1 Disease (Early-Stage)
+                    </div>
+                    <div class="accordion-content">
+                        <h3>Efficacy Profile</h3>
+                        <ul>
+                            <li><strong>Complete Response (CR) Rate:</strong> >90%</li>
+                            <li><strong>15-year Relapse-Free Survival:</strong> 40% in patients with T1 disease</li>
+                            <li><strong>Current Recommendation:</strong> No longer recommended for such limited disease</li>
+                        </ul>
+
+                        <h3>Recurrent Disease Patterns</h3>
+                        <ul>
+                            <li>Most commonly restricted to &lt;5% of skin surface area</li>
+                            <li>Amenable to local salvage therapy with topical therapy or limited superficial radiation</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <strong>Important Note:</strong> When successful salvage of limited recurrences is taken into account, relapse-free survival improves to 70% at 15 years
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        T2 Disease
+                    </div>
+                    <div class="accordion-content">
+                        <h3>Clinical Outcomes</h3>
+                        <ul>
+                            <li><strong>Complete Response Rate:</strong> 76% to 90%</li>
+                            <li><strong>5-Year Relapse-Free Survival:</strong> 50%</li>
+                            <li><strong>10-Year Relapse-Free Survival:</strong> 10%</li>
+                        </ul>
+
+                        <h3>Adjuvant Treatment Benefits</h3>
+                        <p><strong>Adjuvant PUVA:</strong></p>
+                        <ul>
+                            <li>Improves 5-year relapse-free survival to 85%</li>
+                        </ul>
+
+                        <p><strong>Nitrogen Mustard:</strong></p>
+                        <ul>
+                            <li>Improves 10-year relapse-free survival to 40%</li>
+                            <li>Significantly improves relapse-free survival when combined with TSEBT</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        T3 Disease (Cutaneous Tumors)
+                    </div>
+                    <div class="accordion-content">
+                        <h3>Treatment Efficacy</h3>
+                        <ul>
+                            <li><strong>Complete Response Rate:</strong> 44% to 54%</li>
+                            <li>Much greater than any other single modality</li>
+                            <li>TSEBT is less effective compared to earlier stages but still yields impressive results</li>
+                        </ul>
+
+                        <h3>Treatment Recommendations</h3>
+                        <ul>
+                            <li>Adjuvant treatment should be considered</li>
+                            <li>Retrospective studies suggest nitrogen mustard may increase durability of response</li>
+                        </ul>
+
+                        <h3>Alternative Approaches</h3>
+                        <ul>
+                            <li>Combination of nitrogen mustard and local superficial radiation</li>
+                            <li>May be considered for tumors localized to a small percentage of skin surface</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <strong>Boost Treatment Considerations:</strong>
+                            <ul>
+                                <li>Supplemental boosts should be considered for patients with tumors</li>
+                                <li>Boost treatment should be provided concomitantly with initiation of TSEBT or prior to its initiation</li>
+                                <li><strong>Purpose:</strong> Diminish thickness of lesion so electrons from TSEBT can effectively penetrate the entire lesion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        T4 Disease (Erythrodermic Mycosis Fungoides)
+                    </div>
+                    <div class="accordion-content">
+                        <h3>Disease Without Peripheral Circulation Involvement (T4N0)</h3>
+                        <ul>
+                            <li><strong>Response Rate:</strong> 70% to 100%</li>
+                            <li><strong>5-Year Progression-Free Survival:</strong> 25% to 69%</li>
+                        </ul>
+
+                        <h3>Disease With Peripheral/Extracutaneous Involvement</h3>
+                        <ul>
+                            <li>TSEBT is less effective</li>
+                            <li><strong>Response Rate:</strong> Decreases to 74%</li>
+                            <li><strong>Progression-Free Survival:</strong> Decreases to 36%</li>
+                        </ul>
+
+                        <h3>Synergistic Treatment Approach</h3>
+                        <div class="highlight-box">
+                            <strong>TSEBT + Extracorporeal Photopheresis (ECP):</strong>
+                            <ul>
+                                <li>TSEBT appears to be synergistic with ECP</li>
+                                <li>Combination associated with improved disease-specific survival</li>
+                                <li>Decreased levels of circulating malignant cells</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="technique" class="section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Menu</button>
+            
+            <div class="content-card">
+                <h2>Technique</h2>
+
+                <div class="highlight-box">
+                    <strong>Important:</strong> TSEBT is technically challenging and should only be attempted in centers with special expertise in its provision, including skilled physics support.
+                </div>
+
+                <h3>Technical Setup</h3>
+                <ul>
+                    <li><strong>Electron Energy:</strong> 6 to 9 MeV electrons generated by medical linear accelerator</li>
+                    <li><strong>Patient Position:</strong> Patient stands behind polycarbonate screen</li>
+                    <li><strong>Distance:</strong> 3.8 m from the linear accelerator head</li>
+                    <li><strong>Screen Function:</strong> Polycarbonate screen scatters incident electron beam and contributes to improved surface dose</li>
+                </ul>
+
+                <h3>Treatment Cycles</h3>
+                <ul>
+                    <li>Treatment provided in "cycles"</li>
+                    <li><strong>One Cycle Composition:</strong> Treatment in six different positions over 2 days (three positions each day)</li>
+                    <li><strong>Dose per Cycle:</strong> Typically 2 Gy to entirety of skin</li>
+                    <li><strong>Frequency:</strong> Two cycles usually administered per week</li>
+                    <li><strong>Purpose:</strong> Six positions optimize dose distribution at skin surface</li>
+                </ul>
+
+                <h3>Treatment Positions</h3>
+                <p><strong>Cycle Day 1 (Yale and Stanford Protocol):</strong></p>
+                <ul>
+                    <li>Anterior position</li>
+                    <li>Right posterior oblique position</li>
+                    <li>Left posterior oblique position</li>
+                </ul>
+
+                <p><strong>Cycle Day 2:</strong></p>
+                <ul>
+                    <li>Posterior position</li>
+                    <li>Right anterior oblique position</li>
+                    <li>Left anterior oblique position</li>
+                </ul>
+
+                <h3>Dual-Field Technique</h3>
+                <ul>
+                    <li>Used to deliver treatment to superior and inferior field</li>
+                    <li><strong>Gantry Angle:</strong> 16 to 17.5 degrees above and below horizontal</li>
+                    <li>Specific angle dependent upon individual machine characteristics</li>
+                </ul>
+
+                <h3>Dose Distribution at Depth</h3>
+                <p><strong>Yale and Stanford Protocol:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Depth</th>
+                            <th>Dose Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 mm</td>
+                            <td>Maximum dose (100%)</td>
+                        </tr>
+                        <tr>
+                            <td>6 to 7 mm</td>
+                            <td>80% dose</td>
+                        </tr>
+                        <tr>
+                            <td>12.5 mm</td>
+                            <td>20% dose</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="dose" class="section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Menu</button>
+            
+            <div class="content-card">
+                <h2>Dose and Fractionation</h2>
+
+                <h3>Standard Dosing Protocol</h3>
+                <ul>
+                    <li><strong>Course Duration:</strong> Two cycles per week for 9 weeks</li>
+                    <li><strong>Total Dose:</strong> 36 Gy to skin surface</li>
+                    <li><strong>Rationale:</strong> Sublethal damage repair does not appear to be major factor in MF response to ionizing radiation</li>
+                </ul>
+
+                <h3>Dose-Response Relationship</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Total Dose</th>
+                            <th>Complete Response Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&lt;10 Gy</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>10 to 20 Gy</td>
+                            <td>55%</td>
+                        </tr>
+                        <tr>
+                            <td>20 to 25 Gy</td>
+                            <td>66%</td>
+                        </tr>
+                        <tr>
+                            <td>25 to 30 Gy</td>
+                            <td>75%</td>
+                        </tr>
+                        <tr>
+                            <td>30 to 36 Gy</td>
+                            <td>94%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <p><strong>Important Consideration:</strong></p>
+                    <p>Lower doses yield impressive rates of overall response (defined as >50% reduction in cutaneous disease), overall survival, progression-free survival, and relapse-free survival rates. However:</p>
+                    <ul>
+                        <li>Relapse rates are relatively high even when CR is obtained</li>
+                        <li>The absolute benefit of a CR relative to increased side effects at higher doses is unclear</li>
+                    </ul>
+                </div>
+
+                <h3>Reduced-Dose TSEBT</h3>
+                <p>Application of reduced-dose TSEBT (10 to 20 Gy) in combination with additional therapies may be a viable alternative to the current standard of 36 Gy.</p>
+
+                <h3>Low-Dose TSEBT Clinical Trials</h3>
+                <p><strong>Stanford/MD Anderson Trial:</strong></p>
+                <ul>
+                    <li><strong>Study Population:</strong> 33 patients with stage IB to IIIA disease</li>
+                    <li><strong>Treatment:</strong> 12 Gy TSEBT over 12 weeks</li>
+                    <li><strong>Complete Response Rate:</strong> 27%</li>
+                    <li><strong>Overall Response Rate:</strong> 88%</li>
+                    <li><strong>Median Time to Clinical Benefit:</strong> 70.7 weeks (time to which another total skin therapy or systemic therapy was required for management)</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>Advantages of Low-Dose Approach:</strong>
+                    <ul>
+                        <li>Allows more frequent use of TSEBT for duration of patient's illness (often many years)</li>
+                        <li>Toxicity significantly less than with conventional dose treatment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="supplemental" class="section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Menu</button>
+            
+            <div class="content-card">
+                <h2>Supplemental Treatments</h2>
+
+                <h3>Need for Supplemental Doses</h3>
+                <p>The six treatment positions in TSEBT maximize unfolding of the skin and exposure of the skin surface to the incident electron beam, but certain areas remain obscured and require supplemental doses.</p>
+
+                <div class="highlight-box">
+                    <strong>Obscured Areas Requiring Supplementation:</strong>
+                    <ul>
+                        <li>Soles of the feet</li>
+                        <li>Perineum</li>
+                        <li>Scalp</li>
+                    </ul>
+                    <p><strong>Target Dose:</strong> Minimum of 20 to 28 Gy at depth of approximately 4 mm</p>
+                </div>
+
+                <h3>Supplemental Treatment Techniques</h3>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Feet and Perineum Treatment
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>120-kV Superficial Photons:</strong></p>
+                        <ul>
+                            <li>Half-value layer (HVL): 4.2-mm Al</li>
+                            <li><strong>Dose:</strong> 1 Gy/fraction for soles of feet</li>
+                            <li><strong>Dose:</strong> 1 Gy/fraction for perineum</li>
+                        </ul>
+
+                        <p><strong>Low-Energy Electrons (6 MeV):</strong></p>
+                        <ul>
+                            <li>Used with 1-cm bolus</li>
+                            <li><strong>Dose:</strong> 1 Gy/fraction for soles of feet</li>
+                            <li><strong>Dose:</strong> 1 Gy/fraction for perineum</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Scalp Treatment
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Angled Electron Reflector Method:</strong></p>
+                        <ul>
+                            <li>Scalp treated by placing angled electron reflector above patient</li>
+                        </ul>
+
+                        <p><strong>Alternative Approach:</strong></p>
+                        <ul>
+                            <li>Supplemental boosting</li>
+                            <li>Incorporated in some centers as an alternative approach</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Additional Areas for Supplementation
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Other Areas That May Need Supplemental Dose:</strong></p>
+                        <ul>
+                            <li>Thick cutaneous tumors</li>
+                            <li>Skin folds secondary to body habitus</li>
+                        </ul>
+
+                        <p>The need for supplemental dose to such areas is based on the judgment of the radiation oncologist.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="side-effects" class="section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Menu</button>
+            
+            <div class="content-card">
+                <h2>Side Effects</h2>
+
+                <div class="highlight-box">
+                    <p><strong>Patient Perception:</strong></p>
+                    <p>In a review of perceptions of MF therapy, patients overall considered TSEBT to be a more difficult treatment to endure compared to other treatments.</p>
+                    <p><strong>Important:</strong> Patients should be advised that symptoms such as pruritus and cutaneous erythema may be exacerbated during therapy.</p>
+                </div>
+
+                <h3>Acute Side Effects</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Side Effect</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Xerosis</td>
+                            <td>Dry skin</td>
+                        </tr>
+                        <tr>
+                            <td>Dry Desquamation</td>
+                            <td>Peeling of skin</td>
+                        </tr>
+                        <tr>
+                            <td>Extremity Edema</td>
+                            <td>Swelling of arms/legs</td>
+                        </tr>
+                        <tr>
+                            <td>Blister/Bullae Formation</td>
+                            <td>Particularly over lower extremities</td>
+                        </tr>
+                        <tr>
+                            <td>Alopecia</td>
+                            <td>Hair loss from scalp, eyebrows, eyelashes, and body<br>(Usually regrows, but may be lost)</td>
+                        </tr>
+                        <tr>
+                            <td>Nail Changes</td>
+                            <td>Nails may ultimately be lost but usually regrow</td>
+                        </tr>
+                        <tr>
+                            <td>Hypohydrosis</td>
+                            <td>Secondary to damage to sweat glands</td>
+                        </tr>
+                        <tr>
+                            <td>Nasal Irritation</td>
+                            <td>Dryness and irritation may result in nose bleeds</td>
+                        </tr>
+                        <tr>
+                            <td>Gynecomastia</td>
+                            <td>Rare occurrence</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Late/Chronic Side Effects</h3>
+                <p>Late/chronic side effects are minimal and include:</p>
+                <ul>
+                    <li>Cataract formation</li>
+                    <li>Chronic xerosis</li>
+                    <li>Persistent alopecia</li>
+                    <li>Dystrophic nails</li>
+                    <li>Telangiectasia</li>
+                    <li>Secondary skin cancers including:
+                        <ul>
+                            <li>Squamous cell carcinomas</li>
+                            <li>Basal cell carcinomas</li>
+                            <li>Melanomas</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>Infection Risk:</strong>
+                    <p>Clinicians should be vigilant for the possibility of active cutaneous infection during the course of therapy.</p>
+                </div>
+
+                <h3>Protective Measures to Minimize Side Effects</h3>
+                <p>Areas most susceptible to TSEBT are blocked during certain cycles of treatment:</p>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Eye and Lens Protection
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Method:</strong> Combination of internal/external shields</li>
+                            <li>Selected based upon proximity of clinical disease</li>
+                            <li><strong>Internal Eyeshields Usage:</strong> If used, only for portion of therapy (7 to 20 Gy)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Lips, Hands, and Fingernails
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Blocking Method:</strong> Lead mitts or fingernail shields</li>
+                            <li>Applied as clinical circumstances warrant</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Feet
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Blocking Method:</strong> Footboards</li>
+                            <li>Used for a portion of the treatment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        Testicular Protection
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Method:</strong> Testicular shield</li>
+                            <li>May be used during perineal boost treatments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            const targetSection = document.getElementById(sectionId === 'home' ? 'home-section' : sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
+
+    <footer class="footer">
+        
+            <p><strong>FOR FURTHER DETAILS CONTACT:</strong></p>
+       <a href="https://www.linkedin.com/in/dr-revanth-m-khandke-17342b104" target="_blank" class="contact-link">
+         <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+      </svg>
+      Dr Revanth M Khandke
+      </a> 
+    </footer>
+  </div>
+</body>
+</html>
+
